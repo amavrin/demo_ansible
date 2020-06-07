@@ -40,6 +40,18 @@ ssh-add $(vagrant ssh-config | grep IdentityFile | awk '{print $2}')
 ## Вход на управляющую машину по SSH
 ```
 vagrant ssh manager -- -A
+
+```
+
+## Проверка настроек сети
+1. Хост `host1` должен быть доступен по сети
+```
+ping host1
+```
+
+2. Пользователь `vagrant` должен иметь возможность зайти на `host1` по SSH
+```
+ssh host1
 ```
 
 # Работа с Ansible

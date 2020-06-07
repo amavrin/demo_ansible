@@ -34,7 +34,7 @@ vagrant up
 
 ## Добавление ключей ssh к `ssh-agent`
 ```
-ssh-add $(vagrant ssh-config | grep IdentityFile | awk '{print $2}')
+ssh-add "$(vagrant ssh-config | grep IdentityFile | awk '{print $2}')"
 ```
 
 ## Вход на управляющую машину по SSH

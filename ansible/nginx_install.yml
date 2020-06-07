@@ -1,0 +1,12 @@
+- hosts: host1
+  become: true
+  tasks:
+    - name: Install Nginx
+      apt:
+        update_cache: true
+        name: nginx
+
+    - name: Place sample index file
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html

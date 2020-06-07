@@ -16,6 +16,8 @@ Vagrant.configure("2") do |config|
     host1.vm.network "private_network",
       ip: "10.250.1.201",
       virtualbox_intnet: true
+    host1.vm.network :forwarded_port,
+      guest: 80, host: 8881
   end
 
 

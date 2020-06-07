@@ -19,6 +19,7 @@
 ## Клонирование репозитория с файлами для занятия
 ```
 git clone https://github.com/amavrin/demo_ansible
+cd demo_ansible
 ```
 
 ## Установка плагина для разрешения имени виртуальных машин
@@ -31,9 +32,13 @@ vagrant plugin install vagrant-hosts
 vagrant up
 ```
 
+## Добавление ключей ssh к `ssh-agent`
+```
+ssh-add $(vagrant ssh-config | grep IdentityFile | awk '{print $2}')
+```
+
 ## Вход на управляющую машину по SSH
 ```
-ssh-add $(vagrant ssh-config manager | grep IdentityFile | awk '{print $2}')
 vagrant ssh manager -- -A
 ```
 
@@ -50,6 +55,11 @@ cd /vagrant/ansible
 ```
 ansible -m ping all
 ```
+
 Если всё настроено верно, будет получен результат
 ```
+host1 | SUCCESS => {
+    "changed": false,
+    "ping": "pong"
+}
 ```
